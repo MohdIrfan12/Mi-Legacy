@@ -25,7 +25,6 @@ pipeline{
     }
     
     stage('Lint & Unit Test') {
-       parallel {
 //        stage('checkStyle') {
 //           steps {
 //             // We use checkstyle gradle plugin to perform this
@@ -44,7 +43,6 @@ pipeline{
                 sh'./gradlew compile${BUILD_TYPE}Sources'
             }
            }
-        }
      }
     
 
