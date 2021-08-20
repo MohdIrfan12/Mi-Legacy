@@ -24,24 +24,18 @@ pipeline{
       }
     }
     
-    stage('Lint & Unit Test') {
-//        stage('checkStyle') {
-//           steps {
-//             // We use checkstyle gradle plugin to perform this
-//             sh './gradlew checkStyle'
-//           }
-//         }
+    stage('Compile') {
+            steps {
+             script {
+             // run lint checks
+             sh './gradlew checkStyle'
 
-           stage('Unit Test') {
-             steps {
-              sh './gradlew test'
-             }
-           }
+             // run unit test cases
+             sh './gradlew test'
 
-           stage('Compile'){
-             steps{
-                sh'./gradlew compile${BUILD_TYPE}Sources'
-            }
+             // compile
+              sh'./gradlew compile${BUILD_TYPE}Sources'
+              }
            }
      }
     
