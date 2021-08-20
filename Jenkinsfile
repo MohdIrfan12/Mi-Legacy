@@ -28,7 +28,7 @@ pipeline{
             steps {
              script {
                 // run lint checks
-                sh './gradlew checkStyle'
+                //sh './gradlew checkStyle'
 
                 // run unit test cases
                 sh './gradlew test'
