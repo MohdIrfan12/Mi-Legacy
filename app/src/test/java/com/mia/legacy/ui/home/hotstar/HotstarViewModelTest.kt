@@ -32,9 +32,6 @@ internal class HotstarViewModelTest {
         SUT.onStart(mObserver)
     }
 
-    fun fetchMovies_sucees_notifyObserbers() {
-
-    }
 
     @After
     fun after() {
