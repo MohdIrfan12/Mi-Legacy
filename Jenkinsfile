@@ -27,14 +27,14 @@ pipeline{
     stage('Compile') {
             steps {
              script {
-             // run lint checks
-             sh './gradlew checkStyle'
+                // run lint checks
+                sh './gradlew checkStyle'
 
-             // run unit test cases
-             sh './gradlew test'
+                // run unit test cases
+                sh './gradlew test'
 
-             // compile
-              sh'./gradlew compile${BUILD_TYPE}Sources'
+                // compile
+                sh'./gradlew compile${BUILD_TYPE}Sources'
               }
            }
      }
