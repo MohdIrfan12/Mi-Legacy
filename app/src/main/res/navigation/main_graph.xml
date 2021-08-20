@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/hotstarFragmetFragment">
+
+
+    <fragment
+        android:id="@+id/hotstarFragmetFragment"
+        android:name="com.mia.legacy.ui.home.hotstar.HotstarFragment"
+        android:label=""
+        tools:layout="@layout/hotstar_fragment" />
+
+    <fragment
+        android:id="@+id/netflixFragment"
+        android:name="com.mia.legacy.ui.home.netflix.NetflixFragment"
+        android:label=""
+        tools:layout="@layout/netflix_fragment" />
+</navigation>

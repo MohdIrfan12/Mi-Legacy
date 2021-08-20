@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.mia.legacy.ui.splash.SplashFragment"
+        tools:layout="@layout/splash_fragment">
+        <action
+            android:id="@+id/action_splashFragment_to_userInfoFragment"
+            app:destination="@id/userInfoFragment"
+            app:popUpTo="@+id/userInfoFragment"
+            app:popUpToInclusive="false" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/userInfoFragment"
+        android:name="com.mia.legacy.ui.onboarding.userinfo.UserInfoFragment"
+        android:label="User Info"
+        tools:layout="@layout/user_info_fragment">
+        <action
+            android:id="@+id/action_userInfoFragment_to_uploadProfilePicFragment"
+            app:destination="@id/uploadProfilePicFragment" />
+        <action
+            android:id="@+id/action_userInfoFragment_to_tellUsAboutYouFragment"
+            app:destination="@id/tellUsAboutYouFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/uploadProfilePicFragment"
+        android:name="com.mia.legacy.ui.onboarding.profilepic.UploadProfilePicFragment"
+        android:label="Upload Profile Pic"
+        tools:layout="@layout/upload_profile_pic_fragment">
+        <action
+            android:id="@+id/action_uploadProfilePicFragment_to_tellUsAboutYouFragment"
+            app:destination="@id/tellUsAboutYouFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/tellUsAboutYouFragment"
+        android:name="com.mia.legacy.ui.onboarding.tellUsAboutYourself.TellUsAboutYouFragment"
+        android:label="Tell us more."
+        tools:layout="@layout/tell_us_about_you_fragment"/>
+
+
+</navigation>

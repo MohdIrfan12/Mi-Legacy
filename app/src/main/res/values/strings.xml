@@ -1,0 +1,33 @@
+<resources>
+    <string name="app_name">Mi-App</string>
+
+    <string name="text_network_call_failed">network call failed</string>
+    <string name="text_error_promt_title">Network error</string>
+    <string name="text_general_error">Something went wrog.</string>
+
+
+    <string name="text_ok">OK</string>
+    <string name="text_retry">Retry</string>
+
+    <string name="text_permission_granted">Permission Granted</string>
+    <string name="text_permission_declined">Permission Declined</string>
+    <string name="text_permission_declined_and_can_not_ask_more">Permission declied and can\'t ask more.</string>
+    <string name="text_enter_your_name">Enter your name here</string>
+    <string name="text_enter_your_password">Enter password</string>
+    <string name="text_enter_your_profession">Enter your profession</string>
+    <string name="text_enter_your_qualification">Heighest qualification</string>
+    <string name="text_continue">Continue</string>
+    <string name="text_hint_profession">Profession</string>
+    <string name="text_hint_write_summary">Tell us about you</string>
+    <string name="text_upload_profile_pic">Upload profile pic</string>
+    <string name="text_select_pic">Select Pic</string>
+
+
+    <string name="text_user_name_can_not_not_be_empty">User name can not be empty.</string>
+    <string name="text_password_can_not_not_be_empty">Password can not be empty.</string>
+    <string name="hotstar">Hotstar</string>
+    <string name="netflix">Netflix</string>
+    <string name="profile">Profile</string>
+
+
+</resources>
