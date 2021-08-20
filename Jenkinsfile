@@ -11,7 +11,6 @@ pipeline{
   }
   
   stages{
-    
     stage('Detect build type'){
       steps{
         script{
@@ -25,31 +24,30 @@ pipeline{
       }
     }
     
-        stage('Lint & Unit Test') {
-
-          parallel {                                
-//         stage('checkStyle') {
+    stage('Lint & Unit Test') {
+       parallel {
+//        stage('checkStyle') {
 //           steps {
 //             // We use checkstyle gradle plugin to perform this
 //             sh './gradlew checkStyle'
 //           }
 //         }
 
-        stage('Unit Test') {
+           stage('Unit Test') {
              steps {
-              // Execute your Unit Test
-              sh './gradlew testStagingDebug'
+              sh './gradlew test'
              }
            }
-          }
+
+           stage('Compile'){
+             steps{
+                sh'./gradlew compile${BUILD_TYPE}Sources'
+            }
+           }
         }
+     }
     
-     stage('Compile'){
-      steps{
-         sh'./gradlew compile${BUILD_TYPE}Sources'
-      }
-    }
-    
+
 //     stage('UI Testing') {
 //       steps {
 //         script {                                                
