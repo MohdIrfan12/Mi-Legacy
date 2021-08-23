@@ -28,8 +28,7 @@ pipeline{
           parallel {
             stage('checkStyle') {
               steps {
-                // We use checkstyle gradle plugin to perform this
-               // sh './gradlew checkStyle'
+                // sh './gradlew checkStyle'
               }
             }
 
@@ -76,5 +75,4 @@ pipeline{
        }
     }
   }
-}
 }
