@@ -35,7 +35,7 @@ pipeline{
             stage('Unit Test') {
               steps {
                 // Execute your Unit Test
-                sh ./gradlew test
+                sh './gradlew test'
               }
             }
           }
@@ -45,7 +45,7 @@ pipeline{
        steps {
          script {
            if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
-             sh ./gradlew connectedAndroidTest
+             sh './gradlew connectedAndroidTest'
            }
          }
        }
@@ -53,19 +53,19 @@ pipeline{
 
      stage('Clean Build') {
         dir("android") {
-          sh ./gradlew clean
+          sh './gradlew clean'
         }
      }
 
      stage('Compile') {
           steps {
-              sh ./gradlew compile${BUILD_TYPE}Sources
+              sh './gradlew compile${BUILD_TYPE}Sources'
          }
       }
 
     stage('Build'){
       steps{
-         sh ./gradlew assemble${BUILD_TYPE}
+         sh './gradlew assemble${BUILD_TYPE}'
       }
     }
     
