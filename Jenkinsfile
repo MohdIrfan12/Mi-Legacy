@@ -52,9 +52,9 @@ pipeline{
      }
 
      stage('Clean Build') {
-        dir("android") {
-          sh './gradlew clean'
-        }
+        steps {
+           sh './gradlew clean'
+       }
      }
 
      stage('Compile') {
