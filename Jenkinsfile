@@ -54,7 +54,7 @@ pipeline{
 
      stage('Clean Build') {
         dir("android") {
-          sh './gradlew clean'
+          sh ./gradlew clean
         }
      }
 
