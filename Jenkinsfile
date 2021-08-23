@@ -54,8 +54,8 @@ pipeline{
 
      stage('Clean Build') {
         dir("android") {
-          sh "pwd"
-          sh 'ls -al'
+         // sh "pwd"
+         // sh 'ls -al'
           sh './gradlew clean'
         }
      }
