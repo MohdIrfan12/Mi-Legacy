@@ -71,7 +71,7 @@ pipeline{
     
     stage('Release'){
       steps{
-         archiveArtifacts "**/${APP_NAME}-${BUILD_TYPE}-unsigned.apk"
+         archiveArtifacts"**/${APP_NAME}-${BUILD_TYPE}-unsigned.apk"
        }
     }
   }
