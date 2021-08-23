@@ -26,11 +26,11 @@ pipeline{
 
      stage('Lint & Unit Test') {
           parallel {
-            stage('checkStyle') {
-              steps {
+           // stage('checkStyle') {
+           //   steps {
                 // sh './gradlew checkStyle'
-              }
-            }
+           //   }
+          //  }
 
             stage('Unit Test') {
               steps {
