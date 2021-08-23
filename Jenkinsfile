@@ -60,7 +60,7 @@ pipeline{
      stage('Compile') {
           steps {
               sh ./gradlew compile${BUILD_TYPE}Sources
-            }
+         }
       }
 
     stage('Build'){
