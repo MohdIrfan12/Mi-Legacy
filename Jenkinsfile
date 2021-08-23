@@ -66,7 +66,7 @@ pipeline{
 
     stage('Build'){
       steps{
-         sh'./gradlew assemble${BUILD_TYPE}'
+         sh './gradlew assemble${BUILD_TYPE}'
       }
     }
     
