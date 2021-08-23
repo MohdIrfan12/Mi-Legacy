@@ -35,7 +35,7 @@ pipeline{
             stage('Unit Test') {
               steps {
                 // Execute your Unit Test
-                sh './gradlew test'
+                sh ./gradlew test
               }
             }
           }
@@ -59,19 +59,19 @@ pipeline{
 
      stage('Compile') {
           steps {
-              sh './gradlew compile${BUILD_TYPE}Sources'
+              sh ./gradlew compile${BUILD_TYPE}Sources
             }
       }
 
     stage('Build'){
       steps{
-         sh './gradlew assemble${BUILD_TYPE}'
+         sh ./gradlew assemble${BUILD_TYPE}
       }
     }
     
     stage('Release'){
       steps{
-         archiveArtifacts"**/${APP_NAME}-${BUILD_TYPE}-unsigned.apk"
+         archiveArtifacts "**/${APP_NAME}-${BUILD_TYPE}-unsigned.apk"
        }
     }
   }
