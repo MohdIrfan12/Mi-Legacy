@@ -5,5 +5,6 @@ package com.mia.legacy.usecase.Movies
  */
 data class FetchMovieApiResponse(
     val page: Int?,
+    val total_pages: Int?,
     val results: List<Movie>
 )

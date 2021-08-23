@@ -1,6 +1,5 @@
 package com.mia.legacy.ui.splash
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -18,10 +17,6 @@ class SplashFragment : BaseFragment(), SplashViewModelObserver {
 
     private lateinit var mScreenNavigator: ScreenNavigator
     private lateinit var viewModel: SplashViewModel
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

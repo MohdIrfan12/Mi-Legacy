@@ -21,18 +21,18 @@ class UserInfoViewModel(private val saveUserInfoUseCase: SaveUserInfoUseCase) : 
     }
 
     fun saveUserInfo(userName: String?, userPassword: String?) = viewModelScope.launch {
-        mObserver?.showLoader()
         saveAndNotify(userName, userPassword)
     }
 
     private suspend fun saveAndNotify(userName: String?, userPassword: String?) {
-        mObserver?.hideLoader()
         if (userName.isNullOrEmpty()) {
             mObserver?.displayErrorUserNameCanNotBeEmpty()
         } else if (userPassword.isNullOrEmpty()) {
             mObserver?.displayErrorPasswordCanNotBeEmpty()
         } else {
+            mObserver?.showLoader()
             saveUserInfoUseCase.saveUserInfo(userName, userPassword)
+            mObserver?.hideLoader()
             mObserver?.onUserInfoSaved()
         }
     }

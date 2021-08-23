@@ -30,10 +30,9 @@ class DialogsManager(private val mContext: Context, private val mFragmentManager
     }
 
     fun dismissDialog(@Nullable tag: String?) {
-        var dialog = mFragmentManager.findFragmentByTag(tag)
+        val dialog = mFragmentManager.findFragmentByTag(tag)
         if (dialog != null && dialog is DialogFragment) {
             dialog.dismiss()
-            dialog = null
         }
     }
 

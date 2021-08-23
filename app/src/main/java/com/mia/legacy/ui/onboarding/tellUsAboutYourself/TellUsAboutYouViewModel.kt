@@ -51,6 +51,7 @@ class TellUsAboutYouViewModel(
 
     private suspend fun saveUserDataAndNotify(userData: UserData) {
         mSaveTellUsAboutYouUseCase.saveUserInfo(userData)
+        mObserver?.hideLoader()
         mObserver?.onUserInfoSaved()
     }
 }

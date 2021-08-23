@@ -85,7 +85,6 @@ internal class SplashViewModelTest {
         }
     }
 
-
     private fun success() {
         val userData = UserData("Irfan", "1234567890")
         Mockito.`when`(mFetchUserDataUseCase.getUserInfo()).thenReturn(flowOf(userData))

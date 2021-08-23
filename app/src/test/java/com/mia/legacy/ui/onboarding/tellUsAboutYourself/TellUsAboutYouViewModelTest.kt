@@ -93,5 +93,4 @@ internal class TellUsAboutYouViewModelTest {
     }
 
     private fun <T> capture(argumentCaptor: ArgumentCaptor<T>): T = argumentCaptor.capture()
-
 }

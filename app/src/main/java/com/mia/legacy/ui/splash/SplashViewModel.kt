@@ -8,6 +8,7 @@ import com.mia.legacy.usecase.config.FetchMoviesConfigUseCase
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.flow.flowOn
 import kotlin.concurrent.thread
 
 class SplashViewModel(
@@ -31,7 +32,7 @@ class SplashViewModel(
         viewModelScope.coroutineContext.cancelChildren()
     }
 
-    fun fetUserData() = viewModelScope.launch(Dispatchers.IO) {
+    fun fetUserData() = viewModelScope.launch() {
         mFetchUserDataUseCase.getUserInfo()
             .catch {
                 notifyUi(null)

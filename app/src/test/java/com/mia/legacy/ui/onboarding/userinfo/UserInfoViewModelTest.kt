@@ -78,7 +78,6 @@ internal class UserInfoViewModelTest {
             // act
             SUT.saveUserInfo("", "").join()
             // assert
-            Mockito.verify(mUserInfoViewModelObserver, Mockito.atLeastOnce()).hideLoader()
             Mockito.verify(mUserInfoViewModelObserver).displayErrorUserNameCanNotBeEmpty()
         }
     }
@@ -90,7 +89,6 @@ internal class UserInfoViewModelTest {
             // act
             SUT.saveUserInfo(USER_NAME, "").join()
             // assert
-            Mockito.verify(mUserInfoViewModelObserver, Mockito.atLeastOnce()).hideLoader()
             Mockito.verify(mUserInfoViewModelObserver).displayErrorPasswordCanNotBeEmpty()
         }
     }
@@ -114,5 +112,4 @@ internal class UserInfoViewModelTest {
     }
 
     private fun <T> capture(argumentCaptor: ArgumentCaptor<T>): T = argumentCaptor.capture()
-
 }

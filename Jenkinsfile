@@ -23,36 +23,48 @@ pipeline{
         }
       }
     }
-    
-    stage('Compile') {
-            steps {
-             script {
-                // run lint checks
-                //sh './gradlew checkStyle'
 
-                // run unit test cases
-                sh './gradlew test'
-
-                // compile
-                sh'./gradlew compile${BUILD_TYPE}Sources'
+     stage('Lint & Unit Test') {
+          parallel {
+            stage('checkStyle') {
+              steps {
+                // We use checkstyle gradle plugin to perform this
+               // sh './gradlew checkStyle'
               }
-           }
-     }
-    
+            }
 
-//     stage('UI Testing') {
-//       steps {
-//         script {                                                
-//           if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {  
-//           // Start your emulator, testing tools
-//           sh 'emulator @Nexus_Emulator_API_24'
-//           sh 'appium &'  
-//           // You're set to go, now execute your UI test
-//           sh 'rspec spec -fd'
-//           }
-//         }
-//       }
-//     }
+            stage('Unit Test') {
+              steps {
+                // Execute your Unit Test
+                sh './gradlew test'
+              }
+            }
+          }
+        }
+
+     stage('UI Testing') {
+       steps {
+         script {
+           if (currentBuild.result == null || currentBuild.result == 'SUCCESS') {
+             sh ./gradlew connectedAndroidTest
+           }
+         }
+       }
+     }
+
+     stage('Clean Build') {
+        dir("android") {
+          sh "pwd"
+          sh 'ls -al'
+          sh './gradlew clean'
+        }
+     }
+
+     stage('Compile') {
+          steps {
+              sh'./gradlew compile${BUILD_TYPE}Sources'
+            }
+      }
 
     stage('Build'){
       steps{
@@ -60,7 +72,7 @@ pipeline{
       }
     }
     
-    stage('Publish'){
+    stage('Release'){
       steps{
          archiveArtifacts"**/${APP_NAME}-${BUILD_TYPE}-unsigned.apk"
        }
