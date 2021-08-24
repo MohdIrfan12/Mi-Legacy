@@ -24,6 +24,13 @@ pipeline{
       }
     }
 
+    stage('Clean Build') {
+        steps {
+           sh './gradlew clean'
+       }
+     }
+
+
      stage('Lint & Unit Test') {
           parallel {
            // stage('checkStyle') {
@@ -48,12 +55,6 @@ pipeline{
              sh './gradlew connectedAndroidTest'
            }
          }
-       }
-     }
-
-     stage('Clean Build') {
-        steps {
-           sh './gradlew clean'
        }
      }
 
